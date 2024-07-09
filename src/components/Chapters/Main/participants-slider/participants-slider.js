@@ -90,19 +90,19 @@ if (participantsSlider) {
     clearInterval(interval);
   };
 
-  // startAutoSlide();
+  startAutoSlide();
   updateSliderCounter();
 
   prevButton.addEventListener('click', () => {
     stopAutoSlide();
     moveToPrevSlide();
-    // startAutoSlide();
+    startAutoSlide();
   });
 
   nextButton.addEventListener('click', () => {
     stopAutoSlide();
     moveToNextSlide();
-    // startAutoSlide();
+    startAutoSlide();
   });
 
   setSliderPosition();
