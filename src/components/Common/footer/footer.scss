@@ -1,0 +1,18 @@
+.footer {
+  background-color: $footer-bg;
+
+  // .footer__inner
+  &__inner {
+    padding: 40px 0 72px;
+
+    @include media-extra-small {
+      padding: 40px 0 60px;
+    }
+
+    p {
+      text-align: left;
+      @include G-r16;
+      color: $main;
+    }
+  }
+}

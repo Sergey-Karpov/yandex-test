@@ -1,0 +1,41 @@
+<section>
+  <div class="hero">
+    <div class="hero__container">
+      <div class="hero__inner">
+        <div class="hero__top">
+          @@include('components/Shared/Icons/logo/logo.html')
+        </div>
+        <div class="hero__button">
+          <div class="hero__content">
+            <div class="hero__title">
+              <h2>Превратите уездный город</h2>
+              <h2>в столицу земного шара</h2>
+            </div>
+            <div class="hero__descr">
+              <span>Оплатите взнос на телеграммы для организации</span>
+              <span>Международного васюкинского турнира по шахматам</span>
+            </div>
+          </div>
+          <div class="hero__actions">
+            @@include('components/Shared/Buttons/main-btn/main-btn.html', {
+              'modifier': 'black',
+              'text': 'Поддержать шахматную мысль',
+              'data': 'data-path="schedule"'
+            })
+            @@include('components/Shared/Buttons/main-btn/main-btn.html', {
+              'modifier': 'transparent',
+              'text': 'Подробнее о турнире',
+              'data': 'data-path="participants"'
+            })
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- running line -->
+  @@include('components/Common/running-line/running-line.html', {
+    'text-1': 'Дело помощи утопающим — дело рук самих утопающих!',
+    'text-2': 'Шахматы двигают вперед не только культуру, но и экономику!',
+    'text-3': 'Лед тронулся, господа присяжные заседатели!'
+  })
+</section>

@@ -1,0 +1,14 @@
+.participants {
+  // .participants__inner
+  &__inner {
+    padding: 82px 0 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 60px;
+
+    @include media-extra-small {
+      padding: 70px 0 102px;
+    }
+  }
+}

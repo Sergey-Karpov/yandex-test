@@ -1,0 +1,17 @@
+.more-btn {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 35px;
+  @include G-m16;
+  color: $blue;
+  border-radius: 62px;
+  border: 1px solid $blue;
+  @include defaultTransition;
+
+  @include hover {
+    background-color: $blue;
+    color: $white;
+  }
+}

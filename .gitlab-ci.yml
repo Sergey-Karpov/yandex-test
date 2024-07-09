@@ -1,0 +1,72 @@
+stages:
+  - clone
+  - deploy
+  - rebuild
+  - status
+  - destroy
+
+variables:
+  HOST: $CI_PROJECT_NAME-$CI_COMMIT_REF_NAME
+  PROJECT_PATH: /server/frontjs/www
+  DOCKER_COMPOSE_FILE: /server/frontjs/docker-compose.yml
+
+Clone:
+  stage: clone
+  tags:
+    - runner-integlab
+  script:
+    - rm -f ~/gitlabkey
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY_FRONT_JS" > ~/gitlabkey
+    - chmod 600 ~/gitlabkey
+    - ssh-add ~/gitlabkey
+    - rm -f ~/gitlabkey
+    - ssh -o StrictHostKeyChecking=no git@gitlab.dreamte.ru
+    - if [ ! -d "$PROJECT_PATH/$HOST" ]; then git clone $CI_REPOSITORY_URL --branch $CI_COMMIT_REF_NAME $PROJECT_PATH/$HOST; else cd $PROJECT_PATH/$HOST && git --git-dir=$PROJECT_PATH/$HOST/.git --work-tree=$PROJECT_PATH/$HOST reset --hard HEAD && git pull -r $CI_REPOSITORY_URL $CI_COMMIT_REF_NAME; fi
+
+  allow_failure: true
+
+Deploy:
+  stage: deploy
+  tags:
+    - runner-integlab
+  script:
+    - sudo bash /server/frontjs/config/newsite.sh $HOST make
+  needs:
+  - Clone
+
+Rebuild:
+  stage: rebuild
+  tags:
+    - runner-integlab
+  script:
+    - sudo bash /server/frontjs/config/newsite.sh $HOST make
+    - sudo docker logs $HOST -f
+    - sudo docker ps -a -f name=$HOST
+  when: manual
+  needs:
+  - Deploy
+
+Status:
+  stage: status
+  tags:
+    - runner-integlab
+  script:
+    - cat /server/front.integlab.ru/$HOST.txt
+    - sudo docker logs $HOST -f
+    - sudo docker ps -a -f name=$HOST
+    - sudo bash /server/frontjs/config/newsite.sh $HOST stop
+  needs:
+  - Deploy
+
+Destroy:
+  stage: destroy
+  tags:
+    - runner-integlab
+  script:
+    - cd $PROJECT_PATH
+    - sudo docker-compose -f $DOCKER_COMPOSE_FILE -p $HOST down
+    - sudo bash /server/frontjs/config/newsite.sh $HOST del
+  when: manual
+  needs:
+  - Deploy

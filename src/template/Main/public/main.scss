@@ -1,0 +1,21 @@
+//* Global Styles
+@import './../../../app/scss/global.scss';
+//? Common Components
+@import './../../../components/Common/running-line/running-line.scss';
+@import './../../../components/Common/footer/footer.scss';
+//? Shared Components
+@import './../../../components/Shared/Preloaders/preloaders.scss';
+@import './../../../components/Shared/Titles/main-title/main-title.scss';
+@import './../../../components/Shared/Icons/logo/logo.scss';
+@import './../../../components/Shared/Buttons/main-btn/main-btn.scss';
+@import './../../../components/Shared/Titles/section-title/section-title.scss';
+@import './../../../components/Shared/Buttons/more-btn/more-btn.scss';
+//? Chapter Unique Components
+@import './../../../components/Chapters/Main/steps-slider/steps-slider.scss';
+@import './../../../components/Chapters/Main/participants-slider/participants-slider.scss';
+
+//? Sections
+@import './../sections/scss/hero.scss';
+@import './../sections/scss/schedule.scss';
+@import './../sections/scss/steps.scss';
+@import './../sections/scss/participants.scss';

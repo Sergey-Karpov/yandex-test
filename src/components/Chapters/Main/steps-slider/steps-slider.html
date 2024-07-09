@@ -1,0 +1,92 @@
+<div class="steps-slider">
+  <div class="steps-slider__wrapper">
+    <div class="steps-slider__slide">
+      <div class="steps-slider__cards-wrapper">
+        <div class="step-card">
+          <div class="step-card__num">
+            <span>1</span>
+          </div>
+          <div class="step-card__text">
+            <p>Строительство железнодорожной магистрали Москва-Васюки</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">
+            <span>2</span>
+          </div>
+          <div class="step-card__text">
+            <p>Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="steps-slider__slide">
+      <div class="steps-slider__cards-wrapper">
+        <div class="step-card">
+          <div class="step-card__num">
+            <span>3</span>
+          </div>
+          <div class="step-card__text">
+            <p>Поднятие сельского хозяйства в радиусе на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="steps-slider__slide">
+      <div class="steps-slider__cards-wrapper">
+        <div class="step-card">
+          <div class="step-card__num">
+            <span>4</span>
+          </div>
+          <div class="step-card__text">
+            <p>Строительство дворца для турнира</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">
+            <span>5</span>
+          </div>
+          <div class="step-card__text">
+            <p>Размещение гаражей для гостевого автотранспорта</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="steps-slider__slide">
+      <div class="steps-slider__cards-wrapper">
+        <div class="step-card">
+          <div class="step-card__num">
+            <span>6</span>
+          </div>
+          <div class="step-card__text">
+            <p>Постройка сверхмощной радиостанции для передачи всему миру сенсационных результатов</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="steps-slider__slide">
+      <div class="steps-slider__cards-wrapper">
+        <div class="step-card">
+          <div class="step-card__num">
+            <span>7</span>
+          </div>
+          <div class="step-card__text">
+            <p>Создание аэропорта «Большие Васюки» с регулярным отправлением почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="steps-slider__actions">
+    @@include('components/Shared/Buttons/slider-btn/slider-btn.html', {
+      'modifier': 'slider-btn--prev prev'
+    })
+    <div class="steps-slider__count"></div>
+    @@include('components/Shared/Buttons/slider-btn/slider-btn.html', {
+      'modifier': 'slider-btn--next next'
+    })
+  </div>
+  <div class="plane">
+    <img src="./../assets/images/main/steps/plane.png" alt="самолёт">
+  </div>
+</div>

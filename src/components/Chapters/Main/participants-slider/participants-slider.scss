@@ -1,0 +1,126 @@
+@import '../../../Shared/Buttons/slider-btn/slider-btn.scss';
+
+.participants-slider {
+  overflow-x: hidden;
+  overflow-y: visible;
+  position: relative;
+  max-width: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  @include media-medium {
+    overflow: visible;
+  }
+
+  @include media-extra-small {
+    gap: 40px;
+  }
+
+  // .participants-slider__slides
+  &__slides {
+    max-width: 100%;
+    min-height: 462px;
+    display: flex;
+    @include defaultTransition;
+    will-change: transform;
+  }
+
+  // .participants-slider__slide
+  &__slide {
+    min-width: 33.333%;
+    flex: 0 0 33.333%;
+    scroll-snap-align: center;
+
+    @include media-medium {
+      min-width: 50%;
+      flex: 0 0 50%;
+    }
+
+    @include media-extra-small {
+      min-width: 100%;
+      flex: 0 0 100%;
+    }
+  }
+
+  // .participants-slider__actions
+  &__actions {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    z-index: 1;
+
+    @include media-extra-small {
+      bottom: -24px;
+      top: auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.participant-card {
+  height: 100%;
+  width: 100%;
+
+  &[data-avatar='false'] {
+    img {
+      display: none;
+    }
+  }
+
+  // .participant-card__inner
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // .participant-card__img
+  &__img {
+    position: relative;
+    margin-bottom: 24px;
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-image: url('../../assets/images/main/participants/avatar-bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include media-extra-small {
+      width: 244px;
+      height: 244px;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+  }
+
+  // .participant-card__name
+  &__name {
+    margin-bottom: 6px;
+    @include G-sb24;
+    color: $main;
+  }
+
+  // .participant-card__description
+  &__description {
+    margin-bottom: 20px;
+    @include G-r20;
+    color: $main;
+  }
+}

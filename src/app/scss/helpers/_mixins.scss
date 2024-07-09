@@ -1,0 +1,117 @@
+// *================================================================
+//? Absolute-elements centered
+// *================================================================
+
+@mixin absolute-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+// *================================================================
+//? Pseudo-elements centered
+// *================================================================
+
+//? after
+@mixin after-centered {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+//? before
+@mixin before-centered {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+// *================================================================
+//? Transitions
+// *================================================================
+
+@mixin defaultTransition {
+  transition: all 0.3s linear;
+}
+
+@mixin fastTransition {
+  transition: all 0.1s ease-in-out;
+}
+
+@mixin slowTransition {
+  transition: all 0.5s linear;
+}
+
+// *================================================================
+//? Hovers
+// *================================================================
+
+//? Mobile disabled hover
+@mixin hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// *================================================================
+//? Media queries
+// *================================================================
+
+//! 1920+ (*Временно не используется)
+@mixin media-extra-large {
+  @media screen and (min-width: $xl) {
+    @content;
+  }
+}
+
+// 1659-1280
+@mixin media-large {
+  @media screen and (max-width: $lg) {
+    @content;
+  }
+}
+
+// 1279-992
+@mixin media-medium {
+  @media screen and (max-width: $md) {
+    @content;
+  }
+}
+
+// 991-768
+@mixin media-small {
+  @media screen and (max-width: $sm) {
+    @content;
+  }
+}
+
+// 767-0 100%
+@mixin media-extra-small {
+  @media screen and (max-width: $xs) {
+    @content;
+  }
+}
+
+// min width
+@mixin media-min {
+  @media screen and (max-width: $xxs) {
+    @content;
+  }
+}
+
+// *================================================================
+//? Другое
+// *================================================================

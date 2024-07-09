@@ -1,0 +1,23 @@
+/* stylelint-disable */
+//? Миксин для подключения шрифтов
+//* Подробнее: https://developer.mozilla.org/ru/docs/Web/CSS/font-family
+
+@mixin font-face($font-family, $weight, $style) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('../../../assets/fonts/main/#{$font-family}.woff') format('woff'),
+      url('../../../assets/fonts/main/#{$font-family}.woff2') format('woff2');
+    font-weight: #{$weight};
+    font-display: swap;
+    font-style: $style;
+  }
+}
+
+//? Подключение шрифтов
+@include font-face('GolosText-Bold', 700, normal);
+@include font-face('GolosText-DemiBold', 600, normal);
+@include font-face('GolosText-Medium', 500, normal);
+@include font-face('GolosText-Regular', 400, normal);
+@include font-face('Merriweather-Bold', 700, normal);
+@include font-face('Merriweather-Regular', 400, normal);
+@include font-face('Montserrat-Medium', 500, normal);

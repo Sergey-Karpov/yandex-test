@@ -1,0 +1,37 @@
+.main-btn {
+  padding: 15px 40px;
+  @include G-m16;
+  color: $main;
+  text-align: center;
+  border-radius: 66px;
+  @include defaultTransition;
+
+  @include media-medium {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 47px;
+    max-height: 47px;
+  }
+
+  // .main-btn--black
+  &.main-btn--black {
+    background-color: $main;
+    color: $white;
+
+    @include hover {
+      background-color: $hover;
+      color: $main;
+    }
+  }
+
+  // .main-btn--transparent
+  &.main-btn--transparent {
+    border: 1px solid $main;
+
+    @include hover {
+      background-color: $main;
+      color: $white;
+    }
+  }
+}

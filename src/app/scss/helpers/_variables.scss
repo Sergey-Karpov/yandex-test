@@ -1,0 +1,52 @@
+//? Основные цвета
+$main: #313131;
+$white: #ffffff;
+$beige: #e9ded4;
+$red: #f54932;
+$light-gray: #d0d0d0;
+$lighter-gray: #d6d6d6;
+$blue: #3057a2;
+$yellow: #fbce51;
+
+//? Состояния
+$hover: $yellow;
+$disabled: $lighter-gray;
+
+//? Состояния текста
+
+//? Фоны
+$footer-bg: $beige;
+
+//? Размер иконок
+
+//? Border-radius
+
+//? По умолчанию
+$base_fz: 14px; //? Размер шрифта по умолчанию 16px
+$base_ff: 'GolosText-Regular', sans-serif; //? Шрифт по умолчанию
+$base_bg: $white; //? Цвет фона по умолчанию
+$base_color: $main; //? Цвет текста по умолчанию
+
+//? Переменные семейств шрифтов
+$ff_Gb: 'GolosText-Bold', sans-serif;
+$ff_Gsb: 'GolosText-DemiBold', sans-serif;
+$ff_Gm: 'GolosText-Medium', sans-serif;
+$ff_Gr: 'GolosText-Regular', sans-serif;
+$ff_Mb: 'Merriweather-Bold', sans-serif;
+$ff_Mr: 'Merriweather-Regular', sans-serif;
+$ff_MTm: 'Montserrat-Medium', sans-serif;
+
+//? Стиль шрифтов
+$I: italic;
+$O: oblique;
+
+//? Толщина семейства шрифтов
+$th: 100; // Thin
+$el: 200; // Extra Light
+$l: 300; // Light
+$r: 400; // Regular
+$m: 500; // Medium
+$sb: 600; // SemiBold
+$b: 700; // Bold
+$eb: 800; // Extra Bold
+$bl: 900; // Super

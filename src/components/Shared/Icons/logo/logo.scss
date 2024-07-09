@@ -1,0 +1,14 @@
+.logo {
+  &__icon {
+    &--pc {
+      @include media-extra-small {
+        display: none;
+      }
+    }
+    &--mobile {
+      @include media-extra-small {
+        display: block;
+      }
+    }
+  }
+}

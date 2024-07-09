@@ -1,0 +1,122 @@
+// *================================================================
+//? Шрифты и заголовки
+// *================================================================
+
+// Merriweather-bold
+@mixin M-b36 {
+  font-family: $ff_Mb;
+  font-size: 36px;
+  line-height: 48.6px;
+}
+
+@mixin M-b28 {
+  font-family: $ff_Mb;
+  font-size: 28px;
+  line-height: 37.8px;
+}
+
+// Merriweather-regular
+@mixin M-r60 {
+  font-family: $ff_Mr;
+  font-size: 60px;
+  line-height: 66px;
+}
+
+@mixin M-r54 {
+  font-family: $ff_Mr;
+  font-size: 54px;
+  line-height: 64.8px;
+}
+
+@mixin M-r48 {
+  font-family: $ff_Mr;
+  font-size: 48px;
+  line-height: 54px;
+}
+
+@mixin M-r36 {
+  font-family: $ff_Mr;
+  font-size: 36px;
+  line-height: 39.6px;
+}
+
+@mixin M-r28 {
+  font-family: $ff_Mr;
+  font-size: 28px;
+  line-height: 37.8px;
+}
+
+@mixin M-r22 {
+  font-family: $ff_Mr;
+  font-size: 22px;
+  line-height: 24.2px;
+}
+
+@mixin M-r20 {
+  font-family: $ff_Mr;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@mixin M-r18 {
+  font-family: $ff_Mr;
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+@mixin M-r16 {
+  font-family: $ff_Mr;
+  font-size: 16px;
+  line-height: 17.6px;
+}
+
+// GolosText-SemiBold
+@mixin G-sb24 {
+  font-family: $ff_Gsb;
+  font-size: 24px;
+  line-height: 28.8px;
+}
+
+@mixin G-sb20 {
+  font-family: $ff_Gsb;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+// GolosText-Medium
+@mixin G-m20 {
+  font-family: $ff_Gm;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@mixin G-m18 {
+  font-family: $ff_Gm;
+  font-size: 18px;
+  line-height: 21.6px;
+}
+
+@mixin G-m16 {
+  font-family: $ff_Gm;
+  font-size: 16px;
+  line-height: 20.8px;
+}
+
+// GolosText-Regular
+@mixin G-r20 {
+  font-family: $ff_Gr;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@mixin G-r18 {
+  font-family: $ff_Gr;
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+@mixin G-r16 {
+  font-family: $ff_Gr;
+  font-size: 20px;
+  line-height: 24px;
+}

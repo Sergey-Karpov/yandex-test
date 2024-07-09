@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+  @@include('components/Common/head/head.html', { 'title': 'Главная', 'css':
+  'main' })
+
+  <body>
+    <div class="full-wrapper">
+      <main>
+        <!-- page title h1 -->
+        @@include('components/Shared/Titles/main-title/main-title.html', {
+          'title': 'Шахматные турниры'
+        })
+        <!-- sections -->
+        @@include('template/Main/sections/html/hero.html')
+        @@include('template/Main/sections/html/schedule.html')
+        @@include('template/Main/sections/html/steps.html')
+        @@include('template/Main/sections/html/participants.html')
+      </main>
+    </div>
+
+    <!-- Preloader -->
+    @@include('components/Shared/Preloaders/page-preloader/page-preloader.html')
+    <!-- Footer -->
+    @@include('components/Common/footer/footer.html')
+    <!-- page scripts -->
+    <script src="../styles/js/main.min.js"></script>
+    <!-- end -->
+  </body>
+</html>

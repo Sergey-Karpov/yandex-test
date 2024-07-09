@@ -1,0 +1,57 @@
+.running-line {
+  width: 100%;
+  background-color: $red;
+  overflow: hidden;
+  white-space: nowrap;
+
+  // .running-line__inner
+  &__inner {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+
+    @include media-extra-small {
+      padding: 10px 0;
+    }
+  }
+
+  // .running-line__text
+  &__text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+    @include M-r22;
+    color: $white;
+    text-transform: lowercase;
+
+    @include media-extra-small {
+      @include M-r16;
+    }
+
+    span {
+      position: relative;
+      padding: 0 18px 0 12px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $white;
+      }
+    }
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%); /* Начальная позиция */
+  }
+  to {
+    transform: translateX(-100%); /* Конечная позиция */
+  }
+}

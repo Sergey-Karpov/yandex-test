@@ -1,0 +1,37 @@
+.section-title {
+  // .section-title__inner
+  &__inner {
+    @include media-medium {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    h3 {
+      display: inline;
+      @include M-r54;
+      color: $main;
+      text-transform: capitalize;
+
+      @include media-medium {
+        @include M-r36;
+      }
+    }
+
+    span {
+      padding-left: 12px;
+      max-width: 280px;
+      @include G-r20;
+      color: $blue;
+
+      @include media-medium {
+        padding-left: 0;
+      }
+
+      @include media-extra-small {
+        @include G-r18;
+      }
+    }
+  }
+}

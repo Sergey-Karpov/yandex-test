@@ -1,0 +1,26 @@
+/*
+
+Описание:
+1. _reset - библиотека для сброса дефолтных стилей всех браузеров
+2. _functions - файл, который высчитывает ширину контейнера из main.scss. Не удалять!
+3. _mixins - миксины проекта
+4. _variables - файл, который хранит scss переменные
+5. _fonts - файл содержащий подключаемые в проект шрифты
+6. iconfont - иконочный шрифт. Генерируется с помощью сервиса: https://icomoon.io
+
+/*
+? Команды сборщика. Подробнее в документации, раздел "Команды".
+*================================================================
+gulp
+gulp build
+*================================================================
+*/
+
+@import './utils/reset.scss';
+@import './config/breakpoints.scss';
+@import './config/container-options.scss';
+@import './config/grid.scss';
+@import './config/fonts.scss';
+@import './helpers/mixins.scss';
+@import './helpers/variables.scss';
+@import './helpers/typography.scss';
