@@ -1,5 +1,7 @@
-const participantsSlider = document.querySelector('.participants-slider');
-if (participantsSlider) {
+const initSlider = () => {
+  const participantsSlider = document.querySelector('.participants-slider');
+  if (!participantsSlider) return;
+
   const slider = participantsSlider.querySelector(
     '.participants-slider__slides'
   );
@@ -20,15 +22,23 @@ if (participantsSlider) {
   let currentIndex = totalVisibleSlides;
   let interval;
 
-  // Клонируем слайды для создания эффекта бесконечного прокручивания
-  const prependSlides = slides
-    .slice(-totalVisibleSlides)
-    .map((slide) => slide.cloneNode(true));
-  const appendSlides = slides
-    .slice(0, totalVisibleSlides)
-    .map((slide) => slide.cloneNode(true));
+  while (slider.firstChild) {
+    slider.removeChild(slider.firstChild);
+  }
 
-  prependSlides.forEach((slide) => slider.insertBefore(slide, slides[0]));
+  const prependSlides = slides.slice(-totalVisibleSlides).map((slide) => {
+    const clone = slide.cloneNode(true);
+    clone.classList.add('cloned');
+    return clone;
+  });
+  const appendSlides = slides.slice(0, totalVisibleSlides).map((slide) => {
+    const clone = slide.cloneNode(true);
+    clone.classList.add('cloned');
+    return clone;
+  });
+
+  prependSlides.forEach((slide) => slider.appendChild(slide));
+  slides.forEach((slide) => slider.appendChild(slide));
   appendSlides.forEach((slide) => slider.appendChild(slide));
 
   const setSliderPosition = () => {
@@ -90,9 +100,6 @@ if (participantsSlider) {
     clearInterval(interval);
   };
 
-  startAutoSlide();
-  updateSliderCounter();
-
   prevButton.addEventListener('click', () => {
     stopAutoSlide();
     moveToPrevSlide();
@@ -105,5 +112,42 @@ if (participantsSlider) {
     startAutoSlide();
   });
 
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const handleTouchStart = (event) => {
+    touchStartX = event.touches[0].clientX;
+  };
+
+  const handleTouchMove = (event) => {
+    touchEndX = event.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX - touchEndX > 50) {
+      stopAutoSlide();
+      moveToNextSlide();
+      startAutoSlide();
+    }
+
+    if (touchEndX - touchStartX > 50) {
+      stopAutoSlide();
+      moveToPrevSlide();
+      startAutoSlide();
+    }
+  };
+
+  slider.addEventListener('touchstart', handleTouchStart);
+  slider.addEventListener('touchmove', handleTouchMove);
+  slider.addEventListener('touchend', handleTouchEnd);
+
   setSliderPosition();
-}
+  updateSliderCounter();
+  startAutoSlide();
+};
+
+window.addEventListener('resize', () => {
+  setTimeout(initSlider, 300);
+});
+
+initSlider();

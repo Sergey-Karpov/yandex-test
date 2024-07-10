@@ -25,17 +25,12 @@ const initSlider = () => {
 
   const updateButtonStates = () => {
     if (windowWidth >= 768 && windowWidth <= 1279) {
-      // Для разрешения от 768px до 1279px
       nextButton.disabled = currentIndex === totalSlides - 2;
     } else if (windowWidth < 768) {
-      // Для разрешения менее 768px
       nextButton.disabled = currentIndex === totalSlides - 1;
     } else {
-      // Для разрешения более 1279px
       nextButton.disabled = currentIndex === totalSlides - 1;
     }
-
-    // Отключаем кнопку prevButton, если currentIndex равен 0
     prevButton.disabled = currentIndex === 0;
   };
 
@@ -65,18 +60,48 @@ const initSlider = () => {
     moveToNextSlide();
   });
 
-  // Инициализация слайдера
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const handleTouchStart = (event) => {
+    touchStartX = event.touches[0].clientX;
+  };
+
+  const handleTouchMove = (event) => {
+    touchEndX = event.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX - touchEndX > 50) {
+      stopAutoSlide();
+      moveToNextSlide();
+    }
+
+    if (touchEndX - touchStartX > 50) {
+      stopAutoSlide();
+      moveToPrevSlide();
+    }
+  };
+
+  slider.addEventListener('touchstart', handleTouchStart);
+  slider.addEventListener('touchmove', handleTouchMove);
+  slider.addEventListener('touchend', handleTouchEnd);
+
   setSliderPosition();
   updateButtonStates();
 };
 
-window.addEventListener('resize', () => {
-  windowWidth = window.innerWidth;
-  if (stepsSlider && windowWidth <= 1280) {
+const handleResize = () => {
+  const newWindowWidth = window.innerWidth;
+  if (newWindowWidth !== windowWidth) {
+    windowWidth = newWindowWidth;
+    currentIndex = 0;
     initSlider();
   }
-});
+};
 
-if (stepsSlider && windowWidth <= 1280) {
+window.addEventListener('resize', handleResize);
+
+if (stepsSlider) {
   initSlider();
 }
