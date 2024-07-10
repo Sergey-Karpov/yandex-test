@@ -41,10 +41,10 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/pages
+          publish_dir:  'dist/pages'
           publish_branch: gh-pages
           user_name: GitHub Actions
           user_email: actions@github.com
-          cname: sergey-karpov.github.io # Optional: Custom domain
+          cname: sergey-karpov.github.io/main # Optional: Custom domain
 
 
