@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -28,4 +28,4 @@ jobs:
           mv dist_temp dist
           git add dist
           git commit -m "Deploy to GitHub Pages"
-          git push origin master
+          git push origin main
